@@ -1,0 +1,130 @@
+.demo-body {
+  width: 81%;
+  margin: 55px auto;
+  min-width: 1025px;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid blue;
+  .data-display-block {
+    line-height: 55px;
+    vertical-align: middle;
+    .span-title {font-size: 21px;margin-right: 9px;}
+    .span-descrip {font-size: 13px; color: #645;}
+    .container-circle {
+      padding: 35px 55px;
+      border: 1px solid red;
+    }
+  }
+}
+
+/** ======================= circle ============================ */
+.circle-wrap {
+  position: relative;
+  font-size: 0;
+  width: 148px; height: 148px;
+  display: inline-block;
+  margin: 21px 36px;
+  /* IE7下块元素如何兼容 display:inline-block写法 */
+  *display:inline;
+  *zoom:1;
+}
+.circle-wrap .img-circle {
+  position: absolute;
+  top: -3.1%; left: -3%;
+  display: block;
+  width: 106%; height: 106%;
+  //margin-left: -50%;margin-top: -50%;
+  z-index: 1;
+}
+.circle-wrap .circle-content {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  text-align: center;
+  z-index: 9;
+}
+.circle-wrap .circle-content .circle-num {
+  font-size: 21px;
+  margin-top: 51px;
+  line-height: 0.8;
+}
+.circle-wrap .circle-content .circle-span {
+  font-size: 12px;
+  color: #999;
+  font-weight: 100;
+  line-height: 0.8;
+}
+.circle-wrap .circle-content .circle-span .circle-span-help {
+  vertical-align: middle;
+  margin: -3px 0 0 5px;
+  width: 13px;
+  cursor: pointer;
+}
+.circle-wrap .circle-content .circle-tip {
+  position: absolute;
+  left: 71%; top: 65%;
+  font-size: 11px;
+  display: inline-block;
+  width: 159px;
+  height: 36px;
+  line-height: 43px;
+  color: #fcfcfc;
+  *display:inline;
+  *zoom:1;
+  background: url('/static/img/tip.png') center center no-repeat;
+}
+.circle-wrap .circle-tip {
+  position: absolute;
+  bottom: 15%; right: 8%;
+  display: inline-block;
+  /* IE7下块元素如何兼容 display:inline-block写法 */
+  *display:inline;
+  *zoom:1;
+}
+
+
+/** =========== pie ==================== */
+.pie-wrap {
+  position: absolute;
+  left: 0%;top: 0%;
+  width: 100%;height: 100%;
+  background-color: transparent;
+  //background: url('/static/img/circle.png') center center no-repeat;
+  background-size: 100% 100%;
+  z-index: 3;
+  .pie {
+    position: relative;
+    top: 50%; left: 50%;
+    width: 100%;height: 100%;
+    margin-left: -50%;
+    margin-top: -50%;
+    border-radius: 50%;
+    //background-color: hsla(124, 179, 249, 0.8);
+    background-color: white;
+    background-image: linear-gradient(to right, transparent 50%, aliceblue 0);
+    color: transparent;
+    text-align: center;
+    //border: 1px solid silver;
+    &:before {
+      content: "";
+      position: relative;
+      left: 50%; top: 0;
+      display: block;
+      width: 50%; height: 100%;
+      border-radius: 0 100% 100% 0 / 50%;
+      background-color: inherit;
+      transform-origin: left;
+      animation: spin 1s linear 2, bg 2s step-end 2;
+      //animation-play-state: paused;
+      animation-delay: inherit;
+    }
+  }
+}
+
+@keyframes spin {
+  to {transform: rotate(.5turn);}
+}
+@keyframes bg {
+  50% {background: aliceblue;}
+  100% {background: aliceblue;}
+}

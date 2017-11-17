@@ -7,6 +7,7 @@ module.exports = ((filesName) => {
   files.buildPath = path.resolve(files.root, files.buildName);
   files.dllPath = path.resolve(files.root, `${files.buildName}/dll`);
   files.jsPath = path.resolve(appPath, files.jsName);
+  // files.libPath = path.resolve(appPath, files.libName);
   files.cssPath = path.resolve(appPath, files.cssName);
   files.imgPath = path.resolve(appPath, files.imgName);
   files.fontPath = path.resolve(appPath, files.fontName);
@@ -26,6 +27,7 @@ module.exports = ((filesName) => {
   fontName: 'source/font', // 公共字体文件
   imgName: 'source/img', // 公共图片文件
   jsName: 'source/js', // 公共脚本文件
+  // libName: 'source/lib', // 公共脚本文件
   staticName: 'static', // 静态资源包文件
   viewName: 'view', // 视图模板文件
   testName: 'tests', // 测试文件

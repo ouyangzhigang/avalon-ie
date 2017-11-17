@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<title>demo</title>
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome" /> -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+<!-- <meta http-equiv=X-UA-Compatible content=IE=EmulateIE7> -->
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Page-Enter" contect="revealTrans(duration=10,transtion=50)">
+<meta http-equiv="Page-Exit" contect="revealTrans(duration=20，transtion=6)">
+<meta name="viewport" content="width=1720, user-scalable=no, target-densitydpi=device-dpi">
+<link rel="stylesheet" href="/static/css/reset.css">
+<link rel="stylesheet" href="/static/css/common.css">
+<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+<!--[if (gte IE 6)&(lte IE 8)]>
+<script type="text/javascript" src="/static/lib/selectivizr.min.js"></script>
+<noscript><link rel="stylesheet" href="[fallback css]" /></noscript>
+<![endif]-->
+
+<!--[if lt IE 7]>
+<script src=”http://ie7-js.googlecode.com/svn/version/2.0(beta)/IE7.js” type=”text/javascript”></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+<script src="https://cdn.bootcss.com/html5shiv/r29/html5.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 6)&(lte IE 8)]>
+<script src="/static/lib/selectivizr.min.js"></script>
+<![endif]-->
+
+
+<!--[if IE 7]>
+<script type='text/javascript' src='/static/lib/excanvas.js'></script>
+<link rel="stylesheet" href="/static/lib/iefix.css" type="text/css" media="screen" />
+<![endif]-->
+
+<!--[if IE 8]>
+<script type='text/javascript' src='/static/lib/excanvas.js'></script>
+<link rel="stylesheet" href="/static/lib/iefix.css" type="text/css" media="screen" />
+<![endif]-->
+</head>
+<body class="demo-body">
+<div ms-controller="app-demo" class="demo-app">
+  <div class="data-display-block" :if="@datas.length && loaded">
+    <span class="span-title">数据概览</span> <span class="span-descrip">(统计区间: 2016年5月1日至今)</span>
+    <div class="container-circle">
+      <!--<xmp ms-for="($index, el) in @datas" ms-widget="{is: 'ms-circle', cdata: el, cindex: $index}"></xmp>-->
+      <!--<div ms-widget="{is: 'ms-modal'}"></div>-->
+      <!--<span :for="(index, item) in @datas">{{item.name}}</span>-->
+      <div class="circle-wrap animated fadeIn" ms-for="(index,item) in @datas">
+        <img class="img-circle" src="/static/img/circle.png" alt="circle">
+        <div class="circle-content">
+          <h1 class="circle-num">{{@runCount(item.count)}}</h1>
+          <span class="circle-span">{{item.name}}
+            <img class="circle-span-help" ms-mouseover="@overfn(index)" ms-mouseleave="@leavefn" src="/static/img/help.png" alt="alt" />
+          </span>
+          <small class="circle-tip animated bounceIn" :if="@showTip&&(index===@propIndex)">{{item.description}}</small>
+        </div>
+        <div class="pie-wrap">
+          <div class="pie" style="animation-delay: -0s"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

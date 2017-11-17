@@ -16,7 +16,7 @@ module.exports = merge(config, {
   plugins    : [
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(new Dashboard({
-      color  : '#fbbc05',
+      color  : '#698abc',
       minimal: true,
       port   : base.devPort
     }).setData)

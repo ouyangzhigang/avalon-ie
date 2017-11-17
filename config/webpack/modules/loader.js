@@ -93,6 +93,7 @@ module.exports = (dev) => {
 
   cssLoader(/\.(css|pcss)$/, false);
   cssLoader(/\.(sass|scss)$/, 'sass-loader');
+  // cssLoader(/\.(styl)$/, 'stylus-loader');
   cssLoader(/\.(less)$/, 'less-loader');
 
   return Config;
